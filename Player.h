@@ -31,6 +31,31 @@ public:
 	// Returns Player name as a const reference to avoid copying and modification
 	const std::string& name() const;
 
+
+	/* Gameplay Actions */
+
+	// Attempt tp play a Card
+	// Returns True / False depending on if the play() was successful
+	bool playCard(Card* card, Game& game);
+
+	// Check whether the player has a card of a given type in their play area
+	bool hasCardTypeInPlayArea(CardType type) const;
+
+	// Check whether the Player's play area has caused them to bust
+	bool isBust() const;
+
+
+	/* Play Area Management */
+
+
+	/* Scoring */
+
+
+	/* Display */
+
+
+	/* Collections */
+
 private:
 	// Store the Player's name
 	std::string _name;
