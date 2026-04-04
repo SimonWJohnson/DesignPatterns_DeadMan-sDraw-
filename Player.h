@@ -46,15 +46,51 @@ public:
 
 
 	/* Play Area Management */
-
+	
+	// Moves Cards from the play area into the Player's Bank
+	// May also trigger Special Abilities
+	void bankPlayArea(Game& game);
+	
+	// Move Cards from the play area into the discard pile
+	void discardPlayArea(CardCollection& discardPile);
+	
+	//Add Cards to Collections (play area, bank)
+	void addToPlayArea(Card* card);
+	void addToBank(Card* card);
 
 	/* Scoring */
 
+	// Calculates and returns the Player's score
+	// Score based on Cards in Player's Bank
+	int score() const;
 
 	/* Display */
 
+	// Print the Cards currently in the play area
+	void printPlayArea() const;
+
+	// Print the Cards currently in the bank
+	void printBank() const;
+
 
 	/* Collections */
+	// Return True if no Cards in Player's Bank
+	bool bankEmpty() const;
+
+	// Return True if no Cards in Player's Play Area
+	bool playAreaEmpty() const;
+
+	// Getters for both Collections
+	// Both returned as const reference
+	const CardCollection& bank() const;
+	const CardCollection& playArea() const;
+
+	// Card removal from Collections
+	// Removes the highest value Card of a given type from the Player's Bank, then returns it
+	Card* removeHighestOfCardTypeFromBank(CardType type);
+
+	// Removes a number of Cards from discard choices and returns them as a Collection
+	CardCollection removeTopFromDiscardedChoices(CardCollection& discardPile, int count);
 
 private:
 	// Store the Player's name
