@@ -1,5 +1,11 @@
 #include "Card.h"
 
+/*
+Responsibilities:
+- Presenting the card type back to the Player
+- Playing that type of Card
+*/
+
 // Constructor implementation
 Card::Card(CardType type, int pointValue) 
 	: _type(type), _pointValue(pointValue) 
