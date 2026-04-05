@@ -166,7 +166,8 @@ int Player::score() const
 	return total;
 }
 
-/* Special Ability */
+/* Special Abilities */
+
 // Remove and return the highest pointValue Card of a given type from a Player's _bank
 Card* Player::removeHighestOfSuitFromBank(CardType type) 
 {
@@ -203,4 +204,23 @@ Card* Player::removeHighestOfSuitFromBank(CardType type)
 	return bestCard;
 }
 
+// Remove a number of Cards from the top of the Discard Pile and return them
+CardCollection Player::removeTopFromDiscardedChoices(CardCollection& discardPile, int count) 
+{
+	// Create a Vector to hold selected Cards
+	CardCollection chosen;
 
+	// Iterate through the discardPile (if not empty)
+	for (int i = 0; i < count && !discardPile.empty(); i++) 
+	{
+		// Take the last Card from the discardPile
+		chosen.push_back(discardPile.back());
+
+		// Remove the Card from the discardPile
+		discardPile.pop_back();
+	}
+
+	// return the selected Card(s)
+	return chosen;
+	
+}
