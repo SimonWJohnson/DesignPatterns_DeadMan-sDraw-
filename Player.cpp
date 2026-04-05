@@ -67,6 +67,9 @@ void Player::printBank() const
 	{
 		std::cout << card->str() << std::endl;
 	}
+
+	// Print the Player's total score
+	std::cout << "Score: " << score() << std::endl;
 }
 
 /* Add Card to _playArea and _bank */
@@ -117,6 +120,8 @@ bool Player::playCard(Card* card, Game& game)
 	return false;
 }
 
+/* Play Area Functionality */
+
 // Transfer Cards from the _playArea to the _bank
 void Player::bankPlayArea(Game& game) 
 {
@@ -131,6 +136,34 @@ void Player::bankPlayArea(Game& game)
 
 	// Clear the _playArea after Card is transferred to the _bank
 	_playArea.clear();
+}
+
+/* Player Score */
+int Player::score() const 
+{
+	// Store the highest pointValue found for each CardType in the _bank
+	std::map<CardType, int> bestPerSuit;
+
+	// Iterate through the _bank to find the highest pointValue for each type
+	for (Card* card : _bank) 
+	{
+		if (bestPerSuit[card->type()] < card->pointValue())
+		{
+			// Keep the highest value card for each type
+			bestPerSuit[card->type()] = card->pointValue();
+		}
+	}
+
+	int total = 0;
+
+	// Iterate through each key value pair (CardType, pointValue)
+	for (const auto& pair : bestPerSuit) 
+	{
+		// Add the highest pointValue of each Card type to the total score
+		total += pair.second;
+	}
+
+	return total;
 }
 
 
