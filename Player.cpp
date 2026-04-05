@@ -31,6 +31,18 @@ const CardCollection& Player::playArea() const
 	return _playArea;
 }
 
+// Conditional checks for _bank and _playArea state
+// Returns True if _bank / _playArea are empty
+bool Player::bankEmpty() const 
+{
+	return _bank.empty();
+}
+
+bool Player::playAreaEmpty() const
+{
+	return _playArea.empty();
+}
+
 
 // Play Card and check for bust condition
 bool Player::playCard(Card* card, Game& game) 
