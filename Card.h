@@ -36,7 +36,7 @@ public:
 
 	// Pure virtual function
 	// Defines what happens when the card is played
-	// Takes references to Game and POlayer to modify Game state
+	// Takes references to Game and Player to modify Game state
 	virtual void play(Game& game, Player& player) = 0;
 
 	// Virtual function with default implementation
