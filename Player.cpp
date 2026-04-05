@@ -80,6 +80,21 @@ void Player::addToBank(Card* card)
 	_bank.push_back(card);
 }
 
+// Check if a given Card suit/type exists in the play area
+bool Player::hasSuitInPlayArea(CardType type) const 
+{
+	for (Card* card : _playArea)
+	{
+		if (card->type() == type) 
+		{
+			// Card of type found
+			return true;
+		}
+	}
+	// No Card of type found
+	return false;
+}
+
 
 // Play Card and check for bust condition
 bool Player::playCard(Card* card, Game& game) 
@@ -102,4 +117,20 @@ bool Player::playCard(Card* card, Game& game)
 	return false;
 }
 
-// Check if a given Card suit/type exists in the play area
+// Transfer Cards from the _playArea to the _bank
+void Player::bankPlayArea(Game& game) 
+{
+	for (Card* card : _playArea) 
+	{
+		// Override the willAddToBank() to allow a card to perform a special ability before being transferred to the Player's _bank
+		card->willAddToBank(game, *this);
+
+		// Move the Card into the _bank
+		_bank.push_back(card);
+	}
+
+	// Clear the _playArea after Card is transferred to the _bank
+	_playArea.clear();
+}
+
+
