@@ -12,12 +12,25 @@ Player::Player(const std::string& name) : _name(name)
 // Cards (or their pointers) NOT deleted here - this should be handled by Game or Collections
 Player::~Player() {}
 
-// Getter
+/* Getters */
 // returns Player name as a const reference
 const std::string& Player::name() const 
 {
 	return _name;
 }
+
+// Returns _bank Collection
+const CardCollection& Player::bank() const
+{
+	return _bank;
+}
+
+// Returns _playArea Collection
+const CardCollection& Player::playArea() const 
+{
+	return _playArea;
+}
+
 
 // Play Card and check for bust condition
 bool Player::playCard(Card* card, Game& game) 
@@ -40,3 +53,4 @@ bool Player::playCard(Card* card, Game& game)
 	return false;
 }
 
+// Check if a given Card suit/type exists tin the play area
