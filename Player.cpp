@@ -138,6 +138,20 @@ void Player::bankPlayArea(Game& game)
 	_playArea.clear();
 }
 
+// Move all Cards from _playArea into discardPile
+void Player::discardPlayArea(CardCollection& discardPile)
+{
+	// Iterate through the _playArea
+	for (Card* card : _playArea)
+	{
+		// Add each Card in the _playArea to the discardPile
+		discardPile.push_back(card);
+	}
+
+	// Clear the _playArea after discard
+	_playArea.clear();
+}
+
 /* Player Score */
 int Player::score() const 
 {
