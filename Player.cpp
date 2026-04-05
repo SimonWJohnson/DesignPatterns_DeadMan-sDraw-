@@ -43,6 +43,32 @@ bool Player::playAreaEmpty() const
 	return _playArea.empty();
 }
 
+/* Print / Display */
+// Print Player's current _playArea
+void Player::printPlayArea() const 
+{
+	// Print Player's name
+	std::cout << _name << "'s Play Area:" << std::endl;
+
+	// Print each Card's string representation
+	for (Card* card : _playArea) 
+	{
+		std::cout << card->str() << std::endl;
+	}
+}
+
+// Print Player's current _bank ** should this function print Player Score as well?
+void Player::printBank() const 
+{
+	std::cout << _name << "'s Bank:" << std::endl;
+
+	// Print each card in the Bank
+	for (Card* card : _bank) 
+	{
+		std::cout << card->str() << std::endl;
+	}
+}
+
 
 // Play Card and check for bust condition
 bool Player::playCard(Card* card, Game& game) 
@@ -65,4 +91,4 @@ bool Player::playCard(Card* card, Game& game)
 	return false;
 }
 
-// Check if a given Card suit/type exists tin the play area
+// Check if a given Card suit/type exists in the play area
