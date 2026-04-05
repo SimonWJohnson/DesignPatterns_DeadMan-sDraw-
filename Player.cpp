@@ -166,4 +166,41 @@ int Player::score() const
 	return total;
 }
 
+/* Special Ability */
+// Remove and return the highest pointValue Card of a given type from a Player's _bank
+Card* Player::removeHighestOfSuitFromBank(CardType type) 
+{
+	// Store a pointer to the best matching Card found do far
+	// Initialised to nullptr (nothing found...yet)
+	Card* bestCard = nullptr;
+
+	// Store the index of that best card in the Player's _bank
+	std::size_t bestIndex = 0;
+
+	// Iterate through the _bank to find the highest pointValue of a Card Type
+	for (std::size_t i =0; i < _bank.size(); ++i) 
+	{
+		if (_bank[i]->type() == type)
+		{
+			// If a Card of type is found in the Player's _bank
+			if (bestCard == nullptr || _bank[i]->pointValue() > bestCard->pointValue())
+			{
+				// Update bestCard if higher pointValue is found
+				bestCard = _bank[i];
+				bestIndex = i;
+			}
+		}
+	}
+
+	// If a matching Card is found
+	if (bestCard != nullptr) 
+	{
+		// Remove bestCard from the Player's _bank using its index position
+		_bank.erase(_bank.begin() + bestIndex);
+	}
+	
+	// return the removed Card, or nullptr if none found
+	return bestCard;
+}
+
 

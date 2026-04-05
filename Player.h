@@ -13,7 +13,6 @@ Responsibilities:
 */
 
 // Forward declaration of Game
-// Tells the compiler Game exists without including Game.h here
 class Game;
 
 class Player 
