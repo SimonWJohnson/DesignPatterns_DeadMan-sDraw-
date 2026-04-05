@@ -69,6 +69,17 @@ void Player::printBank() const
 	}
 }
 
+/* Add Card to _playArea and _bank */
+void Player::addToPlayArea(Card* card) 
+{
+	_playArea.push_back(card);
+}
+
+void Player::addToBank(Card* card) 
+{
+	_bank.push_back(card);
+}
+
 
 // Play Card and check for bust condition
 bool Player::playCard(Card* card, Game& game) 
