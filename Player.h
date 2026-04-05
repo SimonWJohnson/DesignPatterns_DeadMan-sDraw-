@@ -39,7 +39,7 @@ public:
 	bool playCard(Card* card, Game& game);
 
 	// Check whether the player has a card of a given type in their play area
-	bool hasCardTypeInPlayArea(CardType type) const;
+	bool hasSuitInPlayArea(CardType type) const;
 
 	// Check whether the Player's play area has caused them to bust
 	bool isBust() const;
@@ -87,7 +87,7 @@ public:
 
 	// Card removal from Collections
 	// Removes the highest value Card of a given type from the Player's Bank, then returns it
-	Card* removeHighestOfCardTypeFromBank(CardType type);
+	Card* removeHighestOfSuitFromBank(CardType type);
 
 	// Removes a number of Cards from discard choices and returns them as a Collection
 	CardCollection removeTopFromDiscardedChoices(CardCollection& discardPile, int count);
