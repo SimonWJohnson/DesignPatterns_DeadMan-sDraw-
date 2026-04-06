@@ -74,16 +74,18 @@ CardCollection DiscardPile::drawUpTo(int count)
 	return result;
 }
 
+/* Getters */
+
 // Return a reference to the _cards collection
 // Allows modification
 CardCollection& DiscardPile::cards() 
 {
-
+	return _cards;
 }
 
 // Returns a read only reference to _cards
 // Prevents modification
 const CardCollection& DiscardPile::cards() const 
 {
-
+	return _cards;
 }
