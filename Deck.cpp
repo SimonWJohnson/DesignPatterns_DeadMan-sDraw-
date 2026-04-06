@@ -2,6 +2,8 @@
 #include <algorithm> // used for std::shuffle
 #include <random> // used for shuffle function
 
+/* Deck is the container that manages ordering of Cards, so shuffle() belongs here! */
+
 // Constructor
 // Deck is initialised empty by default
 Deck::Deck() 
