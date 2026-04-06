@@ -6,14 +6,28 @@
 #include <stdexcept>
 
 /* Concrete Cards */ 
+// Add Concrete Cards inclusions here **
+
 
 // Constructor
 Game::Game() 
-{}
+	// Member initialiser list:
+	// Set Player pointer to nullptr - no Player exists yet
+	// Start Turn and ROund counters at 1
+	// Set the _maxTurns (max turns allowed in the Game)
+	: _player1(nullptr), _player2(nullptr), _currentPlayer(nullptr), _turnNumber(1), _roundNumber(1), _maxTurns(20)
+{
+	// Random number generator to produce different random names each time the Game runs - uses the current time
+	std::srand(static_cast<unsigned int>(std::time(nullptr)));
+}
 
 // Destructor
 Game::~Game() 
-{}
+{
+	// Free dynamically allocated Player objects to avoid memory leaks
+	delete _player1;
+	delete _player2;
+}
 
 // Start the Game
 void Game::start() 
@@ -21,7 +35,18 @@ void Game::start()
 
 // initialise Players 
 void Game::initialisePlayers() 
-{}
+{
+	// Array of possible Player names
+	std::string names[] = { "Sam","Billy", "Jen", "Bob", "Sally", "Joe", "Sue", "Sasha", "Tina", "Marge" };
+
+	// Create two Players dynamically using random names
+	// std::rand() % 10 gives a random index from 0 to 9
+	_player1 = new Player(names[std::rand() % 10]);
+	_player2 = new Player(names[std::rand() % 10]);
+
+	// Set _player1 to take the first turn
+	_currentPlayer = _player1;
+}
 
 // Create and populate the Deck
 void Game::createDeck() 
