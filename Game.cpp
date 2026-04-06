@@ -7,6 +7,15 @@
 
 /* Concrete Cards */ 
 // Add Concrete Cards inclusions here **
+#include "CannonCard.h"
+#include "ChestCard.h"
+#include "KeyCard.h"
+#include "SwordCard.h"
+#include "HookCard.h"
+#include "OracleCard.h"
+#include "MapCard.h"
+#include "KrakenCard.h"
+#include "MermaidCard.h"
 
 
 // Constructor
@@ -50,7 +59,26 @@ void Game::initialisePlayers()
 
 // Create and populate the Deck
 void Game::createDeck() 
-{}
+{
+	// For values 2 to 7, a Card of each Tpye is added
+	for (int value = 2; value <= 7; ++value) 
+	{
+		_deck.addCard(new CannonCard(value));
+		_deck.addCard(new ChestCard(value));
+		_deck.addCard(new KeyCard(value));
+		_deck.addCard(new SwordCard(value));
+		_deck.addCard(new HookCard(value));
+		_deck.addCard(new OracleCard(value));
+		_deck.addCard(new MapCard(value));
+		_deck.addCard(new KrakenCard(value));
+	}
+
+	// Add Mermaid Cards with value from 4 to 9
+	for (int value = 4; value <=9; ++value) 
+	{
+		_deck.addCard(new MermaidCard(value));
+	}
+}
 
 // Turn Flow
 void Game::playTurn() 
