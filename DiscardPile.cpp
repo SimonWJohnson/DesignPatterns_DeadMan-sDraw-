@@ -3,18 +3,18 @@
 // Constructor
 DiscardPile::DiscardPile() 
 {
-	// Iterate through the DiscardPile
-	for (Card* card : _cards) 
-	{
-		// Delete the pointer to each Card
-		delete card;
-	}
+
 }
 
 // Deconstructor
 DiscardPile::~DiscardPile() 
 {
-
+	// Iterate through the DiscardPile
+	for (Card* card : _cards)
+	{
+		// Delete the pointer to each Card
+		delete card;
+	}
 }
 
 // Add a Card to the DiscardPile
