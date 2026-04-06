@@ -137,6 +137,7 @@
     <ClCompile Include="HookCard.cpp" />
     <ClCompile Include="KeyCard.cpp" />
     <ClCompile Include="KrakenCard.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapCard.cpp" />
     <ClCompile Include="MermaidCard.cpp" />
     <ClCompile Include="OracleCard.cpp" />
