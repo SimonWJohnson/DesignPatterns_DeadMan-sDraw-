@@ -40,7 +40,17 @@ Game::~Game()
 
 // Start the Game
 void Game::start() 
-{}
+{
+	// Psuedocode
+	// Set up Players and create the Deck
+	// Shuffle the Deck before play begins
+	// Continue while Deck has Cards and turn limit has not been reached
+	// Play 1 turn for _currentPLayer
+	// Increment roundNumber for every 2 turns (1 round = 1 turn from each Player)
+	// Move to the next turn
+	// Switch to the other Player
+	// Game ends - print final results
+}
 
 // initialise Players 
 void Game::initialisePlayers() 
