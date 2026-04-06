@@ -84,12 +84,53 @@ void Game::createDeck()
 void Game::playTurn() 
 {}
 
+// Switch the _currentPlayer pointer to the _otherPlayer
 void Game::switchPlayer() 
-{}
+{
+	// Players are initialised at the start of the Game, but a safety check is here just in case
+	if (_player1 == nullptr || _player2 == nullptr || _currentPlayer == nullptr)
+	{
+		throw std::runtime_error("Players not initialised");
+	}
+
+	// If _currentPlayer is _player1, switch to _player2
+	if (_currentPlayer == _player1)
+	{
+		_currentPlayer = _player2;
+	}
+	else if (_currentPlayer == _player2)
+	{
+		_currentPlayer = _player1;
+	}
+	else
+	{
+		throw std::runtime_error("Invalid current player");
+	}
+}
 
 // Display Player's final score without modifying Game state 
 void Game::printFinalScores() const 
-{}
+{
+	std::cout << "--- Game Over ---" << std::endl;
+
+	// Print each Player's Bank 
+	_player1->printBank();
+	_player2->printBank();
+
+	// Compare Player's scores and print the result
+	if (_player1->score() > _player2->score()) // _player1 wins
+	{
+		std::cout << _player1->name() << " wins!" << std::endl;
+	}
+	else if (_player1->score() < _player2->score()) // _player2 wins
+	{
+		std::cout << _player2->name() << "wins! " << std::endl;
+	}
+	else // scores are tied
+	{
+		std::cout << "Scores are tied!" << std::endl;
+	}
+}
 
 /* Accessors for Player, Deck, and DiscardPile */
 // Access the current and other Player
