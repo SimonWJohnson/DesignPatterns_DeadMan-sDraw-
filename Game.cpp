@@ -92,7 +92,22 @@ void Game::createDeck()
 
 // Turn Flow
 void Game::playTurn() 
-{}
+{
+	// Psuedocode
+	// Display round / turn info and _currentPlayer->name()
+	// Show the _currentPlayer Bank before turn starts
+	// _currentPlayer draws Cards as desired / required, and _deck !empty()
+	// Draw Card from top of _deck
+	// Display drawn Card
+	// _currentPlayer plays the drawn Card
+	// IF _currentPlayer bust(), Cards discarded from _playArea and transferred to _discardPile
+	// _currentPlayer's turn is ended
+	// Else not bust(), print updated _playArea
+	// Prompt _currentPlayer to Draw again (Y/N) - std::cout, std::string input, std::cin >> input
+	// IF input NOT "Y", STOP Drawing
+	// IF _currentPlayer ends turn without bust(), move Cards from _playArea to _bank
+	// Display updated _bank printBank()
+}
 
 // Switch the _currentPlayer pointer to the _otherPlayer
 void Game::switchPlayer() 
