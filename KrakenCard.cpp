@@ -14,7 +14,7 @@ std::string KrakenCard::str() const
 
 void KrakenCard::play(Game& game, Player& player)
 {
-	std::cout << "" << std::endl;
+	std::cout << "Must draw and play three cards consecutively" << std::endl;
 }
 
 void KrakenCard::willAddToBank(Game& game, Player& player)

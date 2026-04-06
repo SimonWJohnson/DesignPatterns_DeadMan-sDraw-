@@ -14,7 +14,7 @@ std::string MapCard::str() const
 
 void MapCard::play(Game& game, Player& player)
 {
-	std::cout << "" << std::endl;
+	std::cout << "Draw 3 cards from the discard pile. You must play one of the cards drawn into your play area" << std::endl;
 }
 
 void MapCard::willAddToBank(Game& game, Player& player)

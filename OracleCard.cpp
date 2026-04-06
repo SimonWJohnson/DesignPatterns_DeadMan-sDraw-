@@ -14,7 +14,7 @@ std::string OracleCard::str() const
 
 void OracleCard::play(Game& game, Player& player)
 {
-	std::cout << "" << std::endl;
+	std::cout << "Peek at the top card of the deck before choosing whether to draw" << std::endl;
 }
 
 void OracleCard::willAddToBank(Game& game, Player& player)

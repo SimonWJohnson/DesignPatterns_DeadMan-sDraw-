@@ -14,7 +14,7 @@ std::string KeyCard::str() const
 
 void KeyCard::play(Game& game, Player& player)
 {
-	std::cout << "" << std::endl;
+	std::cout << "See Chest card" << std::endl;
 }
 
 void KeyCard::willAddToBank(Game& game, Player& player)
