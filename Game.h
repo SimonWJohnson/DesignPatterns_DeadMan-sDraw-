@@ -9,7 +9,7 @@
 /*
 Responsibilities:
 - Initialising the Game state
-- create and shuffle the Deck ** DOes this shuffle, or does the Card class?
+- create and shuffle the Deck ** Does this shuffle, or does the Card class?
 - control turn flow
 - track the current Player and Round
 */
