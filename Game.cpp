@@ -109,18 +109,55 @@ void Game::playTurn()
 {
 	// Psuedocode
 	// Display round / turn info and _currentPlayer->name()
+	std::cout << "--- Round " << _roundNumber << ", Turn " << _turnNumber << "---" << std::endl;
+	std::cout << _currentPlayer->name() << "'s turn " << std::endl;
 	// Show the _currentPlayer Bank before turn starts
+	_currentPlayer->printBank();
+
+	// bool to control drawing of Cards
+	bool continueDrawing = true;
+
 	// _currentPlayer draws Cards as desired / required, and _deck !empty()
-	// Draw Card from top of _deck
-	// Display drawn Card
-	// _currentPlayer plays the drawn Card
-	// IF _currentPlayer bust(), Cards discarded from _playArea and transferred to _discardPile
-	// _currentPlayer's turn is ended
-	// Else not bust(), print updated _playArea
-	// Prompt _currentPlayer to Draw again (Y/N) - std::cout, std::string input, std::cin >> input
-	// IF input NOT "Y", STOP Drawing
+	while (continueDrawing && !_deck.empty()) 
+	{
+		// Draw Card from top of _deck
+		Card* drawn = _deck.draw();
+
+		// Display drawn Card
+		// _currentPlayer plays the drawn Card
+		std::cout << _currentPlayer->name() << " draws a " << drawn->str() << std::endl;
+
+		// IF _currentPlayer bust(), Cards discarded from _playArea and transferred to _discardPile
+		// _currentPlayer's turn is ended
+		bool bust = _currentPlayer->playCard(drawn, *this);
+
+		if (bust) 
+		{
+			std::cout << "BUST! " << _currentPlayer->name() << " loses all cards in play area" << std::endl;
+			_currentPlayer->discardPlayArea(_discardPile.cards());
+			return;
+		}
+		
+		// Else not bust(), print updated _playArea
+		_currentPlayer->printPlayArea();
+
+		// Prompt _currentPlayer to Draw again (Y/N) - std::cout, std::string input, std::cin >> input
+		std::cout << "Draw again? (y/n): ";
+		std::string input;
+		std::cin >> input;
+
+		// IF input NOT "y", STOP Drawing
+		if (input != "y")
+		{
+			continueDrawing = false;
+		}
+	}
+
 	// IF _currentPlayer ends turn without bust(), move Cards from _playArea to _bank
+	_currentPlayer->bankPlayArea(*this);
+
 	// Display updated _bank printBank()
+	_currentPlayer->printBank();
 }
 
 // Switch the _currentPlayer pointer to the _otherPlayer
