@@ -4,6 +4,7 @@
 #include <map> // std::map - count card types and track card values
 #include <algorithm> // std::count_if used in playCard()
 
+
 // Constructor
 Player::Player(const std::string& name) : _name(name)
 {}
@@ -105,15 +106,34 @@ bool Player::playCard(Card* card, Game& game)
 	// Add the Card to the Player's play area
 	addToPlayArea(card);
 
-	// Conditional check for Card drawn
+	////// Conditional check for Card drawn
+	////// If there is now more than 1 card of the same type/suit in the play area, the Player busts and the function returns True
+	////if (hasSuitInPlayArea(card->type()) && std::count_if(_playArea.begin(), _playArea.end(), [card](Card* c) {return c->type(); }) > 1)
+	////{
+	////	// Bust
+	////	return true;
+	////}
+
+	////// If Player has not bust, trigger the Card's special ability
+	////card->play(game, *this);
+
 	// If there is now more than 1 card of the same type/suit in the play area, the Player busts and the function returns True
-	if (hasSuitInPlayArea(card->type()) && std::count_if(_playArea.begin(), _playArea.end(), [card](Card* c) {return c->type(); }) > 1)
+	int matchingCards = static_cast<int>(
+		std::count_if(
+			_playArea.begin(), _playArea.end(), [card](Card* c)
+			{
+				return c->type() == card->type();
+			}
+		)
+	);
+
+	if (matchingCards > 1) 
 	{
-		// Bust
+		// bust
 		return true;
 	}
 
-	// If Player has not bust, trigger the Card's special ability
+	// If _currentPlayer has not bust, trigger Card's special ability
 	card->play(game, *this);
 
 	// If Player is NOT bust, return False

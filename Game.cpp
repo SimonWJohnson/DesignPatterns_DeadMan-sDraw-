@@ -102,7 +102,11 @@ void Game::createDeck()
 	{
 		_deck.addCard(new MermaidCard(value));
 	}
+
+	// Shuffle the Deck
+	_deck.shuffle();
 }
+
 
 // Turn Flow
 void Game::playTurn() 
