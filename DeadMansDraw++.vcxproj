@@ -161,6 +161,10 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="SwordCard.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\Dead Mans Draw Class Diagram.pdf" />
+    <None Include="docs\System Design Document_Simon Johnson.pdf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -111,4 +111,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="docs\Dead Mans Draw Class Diagram.pdf" />
+    <None Include="docs\System Design Document_Simon Johnson.pdf" />
+  </ItemGroup>
 </Project>
