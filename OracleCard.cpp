@@ -18,9 +18,10 @@ std::string OracleCard::str() const
 
 void OracleCard::play(Game& game, Player& player)
 {
-	// Psuedocode
+
 	// std::cout << ability message
 	std::cout << "Peek at the top card of the deck before choosing whether to draw" << std::endl;
+
 	// Peek the top Card of Deck without removing it
 	Card* topCard = game.deck().peekTop();
 	
@@ -35,7 +36,7 @@ void OracleCard::play(Game& game, Player& player)
 	std::cout << "The Oracle sees a " << topCard->str() << std::endl;
 
 	// Prompt _player to choose to draw the Card
-	std::cout << "Draw this card? (y/n): " << std::endl;
+	std::cout << "Draw this card? (y/n): ";
 
 	std::string input;
 	std::cin >> input;
@@ -60,10 +61,17 @@ void OracleCard::play(Game& game, Player& player)
 	// Display action to currentPLayer
 	std::cout << player.name() << " draws " << drawnCard->str() << std::endl;
 
-	bool bust = player.playCard(drawnCard, game);
+	// add drawnCard to Play Area 
+	player.addToPlayArea(drawnCard);
+
+	// Resolve Card's ability
+	// drawnCard is resolved within play() to prevent recursive turns
+	// This maintains correct control flow between Card abilities and the main game loop
+	drawnCard->play(game, player);
 
 	// If the moved Card causes a bust
-	if (bust)
+	//if (bust)
+	if(player.playAreaEmpty())
 	{
 		// Display bust message to currentPlayer
 		std::cout << "BUST! " << player.name() << " loses all cards in Play Area" << std::endl;

@@ -85,7 +85,7 @@ void MapCard::play(Game& game, Player& player)
 	// If playing chosenCard causes bust, end turn and clear playArea
 	if (bust) 
 	{
-		std::cout << "BUST!" << player.name() << " loses all cards in Play Area" << std::endl;
+		std::cout << "BUST! " << player.name() << " loses all cards in Play Area" << std::endl;
 
 		// Move all Cards in _playArea to _discardPile
 		player.discardPlayArea(game.discardPile().cards());
