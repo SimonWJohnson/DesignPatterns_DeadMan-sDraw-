@@ -61,7 +61,7 @@ void KrakenCard::play(Game& game, Player& player)
 
 	// If all three draws complete without BUST
 	// Play resumes as normal
-	std::cout << " Kraken effect complete " << std::endl;
+	std::cout << "Kraken effect complete " << std::endl;
 }
 
 void KrakenCard::willAddToBank(Game& game, Player& player)
