@@ -12,12 +12,18 @@ std::string KeyCard::str() const
 	return "Key(" + std::to_string(_pointValue) + ")";
 }
 
+// Key has no immediate effect when drawn
 void KeyCard::play(Game& game, Player& player)
 {
 	std::cout << "See Chest card" << std::endl;
 }
 
+// Key does not trigger the effect itself
+// Chest handles Chest / Key banking effect to avoid the effect being triggererd twice
 void KeyCard::willAddToBank(Game& game, Player& player)
 {
-	// TO DO: implement logic
+	// Psuedocode
+	// Check _playArea to see if ChestCard is present
+	// IF no Chest is present, return
+	// Else...
 }
