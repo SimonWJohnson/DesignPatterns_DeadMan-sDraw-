@@ -141,6 +141,13 @@ void Game::playTurn()
 			_currentPlayer->discardPlayArea(_discardPile.cards());
 			return;
 		}
+
+		// Catch BUST that happen inside Card ability
+		// Edge case - Oracle sees Oracle as next Card, Draw Oracle, Player BUST, Player asked to draw again
+		if (_currentPlayer->playAreaEmpty()) 
+		{
+			return;
+		}
 		
 		// Else not bust(), print updated _playArea
 		_currentPlayer->printPlayArea();
