@@ -90,7 +90,7 @@ void SwordCard::play(Game& game, Player& player)
 		}
 
 		// Remove highest pointValue Card of selected suit from _currentPlayer _bank
-		Card* stolenCard = player.removeHighestOfSuitFromBank(chosenType);
+		Card* stolenCard = other.removeHighestOfSuitFromBank(chosenType);
 
 		// IF no Card of that suit exists in _bank
 		if (stolenCard == nullptr)
