@@ -55,7 +55,7 @@ void ChestCard::willAddToBank(Game& game, Player& player)
 	}
 
 	// Display Special Ability message to _currentPlayer
-	std::cout << "Chest + Key! Draw" << bonusCount << " bonus cards from the Discard Pile into the Bank" << std::endl;
+	std::cout << "Chest + Key! Draw " << bonusCount << " bonus cards from the Discard Pile into the Bank" << std::endl;
 
 	// Repeat action up to bonusCount
 	//	IF _discardPile empty(), return
