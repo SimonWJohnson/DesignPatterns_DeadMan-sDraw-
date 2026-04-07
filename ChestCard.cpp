@@ -19,5 +19,18 @@ void ChestCard::play(Game& game, Player& player)
 
 void ChestCard::willAddToBank(Game& game, Player& player)
 {
-	// TO DO: implement logic
+	// Psuedocode
+	// Check if _playArea also contains a KeyCard
+	// IF Key not present, return
+	// Determine number of Cards being moved into _bank this turn
+	// This is the bonusCount
+	// IF _discardPile empty()
+	//	std::cout "No cards in the Discard Pile"
+	//	return
+	// Repeat action up to bonusCount
+	//	IF _discardPile empty(), return
+	//	draw() top Card from _discardPile
+	// add card to _currentPlayer _bank
+	// std::cout bonusCard added
+	// use a guard so effect does NOT trigger twice 
 }
