@@ -43,13 +43,27 @@ void Game::start()
 {
 	// Psuedocode
 	// Set up Players and create the Deck
-	// Shuffle the Deck before play begins
+	initialisePlayers();
+	// Create and shuffle the Deck before play begins
+	createDeck();
 	// Continue while Deck has Cards and turn limit has not been reached
-	// Play 1 turn for _currentPLayer
-	// Increment roundNumber for every 2 turns (1 round = 1 turn from each Player)
-	// Move to the next turn
-	// Switch to the other Player
+	while (!_deck.empty() && _turnNumber <= _maxTurns) 
+	{
+		// Play 1 turn for _currentPLayer
+		playTurn();
+
+		// Increment roundNumber for every 2 turns (1 round = 1 turn from each Player)
+		if (_turnNumber % 2 == 0) // _turnNumber is even number
+		{
+			_roundNumber++;
+		}
+		// Move to the next turn
+		_turnNumber++;
+		// Switch to the other Player
+		switchPlayer();
+	}
 	// Game ends - print final results
+	printFinalScores();
 }
 
 // initialise Players 
