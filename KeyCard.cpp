@@ -17,7 +17,7 @@ std::string KeyCard::str() const
 // Key has no immediate effect when drawn
 void KeyCard::play(Game& game, Player& player)
 {
-	std::cout << "See Chest card" << std::endl;
+	std::cout << "Key has no effect unless banked with a Chest" << std::endl;
 }
 
 // Key does not trigger the effect itself
