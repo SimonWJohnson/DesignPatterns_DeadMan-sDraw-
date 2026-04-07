@@ -24,7 +24,7 @@ void HookCard::play(Game& game, Player& player)
 	// Check _currentPlayer _bank for Cards
 	if (player.bankEmpty()) 
 	{
-		std::cout << "No cards in yor Bank. Play continues " << std::endl;
+		std::cout << "No cards in your Bank. Play continues " << std::endl;
 		return;
 	}
 
@@ -83,7 +83,7 @@ void HookCard::play(Game& game, Player& player)
 		default:
 			// Validation should prevent default case
 			// Added as an extrra safety net
-			std::cout << "Invalid choice. Play continues" << std::endl;
+			std::cout << "Invalid choice. Try again" << std::endl;
 			return;
 		}
 
@@ -93,7 +93,7 @@ void HookCard::play(Game& game, Player& player)
 		// IF no Card of that suit exists in _bank
 		if (selectedCard == nullptr)
 		{
-			std::cout << "No card of that suit found in your Bank. Play continues" << std::endl;
+			std::cout << "No card of that suit found in your Bank. Try again" << std::endl;
 			continue;
 		}
 
