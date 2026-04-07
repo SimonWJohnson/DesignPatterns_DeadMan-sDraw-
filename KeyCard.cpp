@@ -21,11 +21,7 @@ void KeyCard::play(Game& game, Player& player)
 }
 
 // Key does not trigger the effect itself
-// Chest handles Chest / Key banking effect to avoid the effect being triggererd twice
 void KeyCard::willAddToBank(Game& game, Player& player)
 {
-	// Psuedocode
-	// Check _playArea to see if ChestCard is present
-	// IF no Chest is present, return
-	// Else...
+	// Chest handles Chest / Key banking effect to avoid the effect being triggererd twice
 }

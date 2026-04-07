@@ -66,5 +66,5 @@ void KrakenCard::play(Game& game, Player& player)
 
 void KrakenCard::willAddToBank(Game& game, Player& player)
 {
-	// TO DO: implement logic
+	// Not required
 }

@@ -76,5 +76,5 @@ void OracleCard::play(Game& game, Player& player)
 
 void OracleCard::willAddToBank(Game& game, Player& player)
 {
-	// TO DO: implement logic
+	// Not required
 }

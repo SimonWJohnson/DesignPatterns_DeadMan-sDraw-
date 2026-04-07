@@ -113,15 +113,6 @@ void HookCard::play(Game& game, Player& player)
 			player.discardPlayArea(game.discardPile().cards());
 
 		}
-		// Play chosen card -> player.playCard(chosenCard, game)
-		//		addToPlayArea()
-		//		check for bust
-		//		trigger ability of played Card
-		//		IF playCard() returns true
-		//			std:cout << bust message
-		//			move all Cards in _playArea to _discardPile
-
-		// End while
 		break;
 	}
 
@@ -129,5 +120,5 @@ void HookCard::play(Game& game, Player& player)
 
 void HookCard::willAddToBank(Game& game, Player& player)
 {
-	// TO DO: implement logic
+	// Not required
 }

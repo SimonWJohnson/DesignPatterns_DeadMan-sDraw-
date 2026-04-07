@@ -100,7 +100,7 @@ void SwordCard::play(Game& game, Player& player)
 		}
 
 		// Display action to the currentPlayer
-		std::cout << "You stole " << stolenCard->str() << " from" << other.name() <<"'s Bank" << std::endl;
+		std::cout << "You stole " << stolenCard->str() << " from " << other.name() <<"'s Bank" << std::endl;
 
 		// Check for bust
 		bool bust = player.playCard(stolenCard, game);
@@ -122,5 +122,5 @@ void SwordCard::play(Game& game, Player& player)
 
 void SwordCard::willAddToBank(Game& game, Player& player) 
 {
-	// TO DO: implement logic
+	// Not required
 }
