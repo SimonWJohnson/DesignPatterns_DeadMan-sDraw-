@@ -1,4 +1,6 @@
 #include "KeyCard.h"
+#include "Player.h"
+#include "Game.h"
 
 #include <iostream>
 
