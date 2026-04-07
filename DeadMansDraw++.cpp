@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "Game.h"
+#include "game_title.h"
 
 int main()
 {
